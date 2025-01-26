@@ -67,7 +67,7 @@ function main(args) {
       });
 
     console.log(availableTimesByDay)
-    return {"body": json.stringify(availableTimesByDay)}
+    return {"body": "confirm"}
   }
 
 exports.main = main
