@@ -67,7 +67,9 @@ function main(args) {
       });
 
     console.log(availableTimesByDay)
-    return {"body": 'confirm'}
+    return {"body": {"availibility": availableTimesByDay},
+            "statusCode": 200
+           }
   }
 
 exports.main = main
