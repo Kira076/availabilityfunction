@@ -1,7 +1,7 @@
 function main(args) {
     let name = args.name || 'stranger'
     let greeting = 'Hello ' + name + '!'
-    let events = args.events || { }
+    let events = args.events || [ ]
     let dayStart = args.dayStart || '9:00'
     let dayEnd = args.dayEnd || '17:00'
 
@@ -66,8 +66,18 @@ function main(args) {
         availableTimesByDay[date] = availableTimes;
       });
 
+    /*let output = "";
+    for (const date in availableTimesByDay) {
+        console.log(`Availability for ${date}:`);
+        output.concat([output, `Availability for ${date}:\n`])
+        availableTimesByDay[date].forEach(timeSlot => {
+          console.log(`  Available: ${timeSlot.start} - ${timeSlot.end}\n`);
+          output.concat([output, `  Available: ${timeSlot.start} - ${timeSlot.end}`])
+        });
+      }*/
+
     console.log(availableTimesByDay)
-    return {"body": {"availibility": availableTimesByDay},
+    return {"body": availableTimesByDay, //availableTimesByDay
             "statusCode": 200
            }
   }
